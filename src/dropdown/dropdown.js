@@ -1,4 +1,4 @@
-import "./css/style.css";
+import "../css/style.css";
 import "./dropdown.css";
 import chevronDown from "../assets/icons/chevron-down.svg";
 
