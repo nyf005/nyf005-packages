@@ -1,0 +1,8 @@
+.dropdown-menu {
+  margin: 8px;
+}
+
+.dropdown-menu,
+.dropdown-menu-item a {
+  width: 600px;
+}

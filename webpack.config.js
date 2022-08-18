@@ -3,13 +3,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: {
-    bundle: path.resolve(__dirname, "src/index.js"),
-  },
+  entry: path.resolve(__dirname, "src/index.js"),
   output: {
-    filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
-    clean: true,
+    filename: "index_bundle.js",
+    library: "nyf_utils",
+    libraryTarget: "umd",
   },
   module: {
     rules: [
@@ -23,14 +22,15 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              outputPath: "assets/images/",
+              outputPath: "assets/icons/",
             },
           },
         ],
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: "asset/resource",
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: "babel-loader",
       },
     ],
   },
