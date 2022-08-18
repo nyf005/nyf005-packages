@@ -1,0 +1,27 @@
+{
+  "name": "nyf-package-utils",
+  "version": "1.0.0",
+  "description": "A collection of my best packages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyf005/nyf005-packages.git"
+  },
+  "author": "Fabrice N'DRI <nyf.dev@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nyf005/nyf005-packages/issues"
+  },
+  "homepage": "https://github.com/nyf005/nyf005-packages#readme",
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
