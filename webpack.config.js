@@ -9,6 +9,7 @@ module.exports = {
     filename: "index_bundle.js",
     library: "nyf_utils",
     libraryTarget: "umd",
+    clean: true,
   },
   module: {
     rules: [
@@ -27,16 +28,16 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.(js)$/,
-        exclude: /node_modules/,
-        use: "babel-loader",
-      },
+      // {
+      //   test: /\.(js)$/,
+      //   exclude: /node_modules/,
+      //   use: "babel-loader",
+      // },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "dropdown module",
+      title: "nyf utils",
       filename: "index.html",
       template: "src/template.html",
     }),

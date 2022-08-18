@@ -1,0 +1,23 @@
+#img-container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas: "leftBtn picture rightBtn";
+}
+
+#left,
+#right {
+  display: grid;
+  place-content: center;
+}
+
+#left {
+  grid-area: leftBtn;
+}
+
+#picture {
+  grid-area: picture;
+}
+
+#right {
+  grid-area: rightBtn;
+}
