@@ -14,7 +14,7 @@ const images = [
 
 const carousel = Carousel();
 const carouselContainer = carousel.create(images);
-carousel.slide(images);
+carousel.slide(images, 8);
 
 content.appendChild(carouselContainer);
 

@@ -50,10 +50,10 @@ const Carousel = () => {
     return imgContainer;
   };
 
-  const slide = (images) => {
+  const slide = (images, seconds) => {
     setInterval(() => {
       _showPrevOrNext(images, "next");
-    }, 5000);
+    }, seconds * 1000);
   };
 
   const _createDot = (index) => {
@@ -80,6 +80,7 @@ const Carousel = () => {
     let nextIndex = direction == "next" ? currentIndex + 1 : currentIndex - 1;
     const dots = document.getElementsByClassName("dot");
 
+    // Reset the index of image to display
     if (nextIndex == images.length) {
       nextIndex = 0;
     }
