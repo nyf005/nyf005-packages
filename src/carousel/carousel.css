@@ -14,10 +14,58 @@
   grid-area: leftBtn;
 }
 
-#picture {
-  grid-area: picture;
-}
-
 #right {
   grid-area: rightBtn;
+}
+
+#left,
+#right {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#left:hover > img,
+#right:hover > img {
+  filter: invert(28%) sepia(62%) saturate(1544%) hue-rotate(162deg)
+    brightness(98%) contrast(89%);
+}
+
+#left img,
+#right img {
+  min-width: 50px;
+}
+
+#picture {
+  grid-area: picture;
+  position: relative;
+}
+
+#picture img {
+  border-radius: 10px;
+  max-width: 100%;
+}
+
+#dots {
+  display: flex;
+  gap: 5px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 8px;
+  position: absolute;
+  border-radius: 25px;
+  bottom: 5px;
+  left: 50%;
+  z-index: 2;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border: 2px solid white;
+  border-radius: 50%;
+  /* background-color: white; */
+}
+
+.dot:hover {
+  background-color: white;
 }
