@@ -11,6 +11,9 @@ export default function Carousel(images) {
   const chevronLeft = document.createElement("img");
   chevronLeft.src = leftChevron;
   leftBtn.appendChild(chevronLeft);
+  leftBtn.addEventListener("click", () => {
+    showImage(images, "previous");
+  });
 
   const rightBtn = document.createElement("button");
   rightBtn.id = "right";
@@ -18,7 +21,7 @@ export default function Carousel(images) {
   chevronRight.src = rightChevron;
   rightBtn.appendChild(chevronRight);
   rightBtn.addEventListener("click", () => {
-    showNext(images);
+    showImage(images, "next");
   });
 
   const pictureDiv = document.createElement("div");
@@ -37,7 +40,6 @@ export default function Carousel(images) {
   const img = generateImage(images[0], 0);
   pictureDiv.append(img);
   dots.childNodes[0].classList.add("fill");
-  //   pictureDiv.childNodes[0].style.display = "block";
 
   pictureDiv.append(dots);
 
@@ -62,16 +64,16 @@ function generateImage(source, index) {
   return img;
 }
 
-function showNext(images) {
+function showImage(images, direction) {
   // Get the current picture
   const pictureDiv = document.getElementById("picture");
   const currentPicture = document.querySelector("#picture img");
   const currentIndex = Number(currentPicture.getAttribute("data-index"));
-  const nextIndex = currentIndex + 1;
+  const nextIndex = direction == "next" ? currentIndex + 1 : currentIndex - 1;
   const dots = document.getElementsByClassName("dot");
 
   // Create a new picture
-  if (nextIndex < images.length) {
+  if (nextIndex < images.length && nextIndex > -1) {
     const newPicture = generateImage(images[nextIndex], nextIndex);
     pictureDiv.replaceChild(newPicture, currentPicture);
     dots[currentIndex].classList.remove("fill");

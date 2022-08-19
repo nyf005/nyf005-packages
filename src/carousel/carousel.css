@@ -1,6 +1,6 @@
 #img-container {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr 80vw 1fr;
   grid-template-areas: "leftBtn picture rightBtn";
 }
 
@@ -39,11 +39,13 @@
 #picture {
   grid-area: picture;
   position: relative;
+  display: flex;
 }
 
 #picture img {
   border-radius: 10px;
-  max-width: 100%;
+  min-width: 100%;
+  object-fit: cover;
 }
 
 #dots {
@@ -55,7 +57,8 @@
   border-radius: 25px;
   bottom: 5px;
   left: 50%;
-  z-index: 2;
+  transform: translate(-50%, 0);
+  z-index: 1;
 }
 
 .dot {
@@ -65,7 +68,10 @@
   border-radius: 50%;
 }
 
-.dot:hover,
 .fill {
   background-color: white;
+}
+
+.dot:hover {
+  background-color: rgba(255, 255, 255, 0.5);
 }
