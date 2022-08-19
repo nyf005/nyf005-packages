@@ -12,7 +12,7 @@ export default function Carousel(images) {
   chevronLeft.src = leftChevron;
   leftBtn.appendChild(chevronLeft);
   leftBtn.addEventListener("click", () => {
-    showImage(images, "previous");
+    showPrevOrNext(images, "previous");
   });
 
   const rightBtn = document.createElement("button");
@@ -21,7 +21,7 @@ export default function Carousel(images) {
   chevronRight.src = rightChevron;
   rightBtn.appendChild(chevronRight);
   rightBtn.addEventListener("click", () => {
-    showImage(images, "next");
+    showPrevOrNext(images, "next");
   });
 
   const pictureDiv = document.createElement("div");
@@ -32,7 +32,9 @@ export default function Carousel(images) {
 
   images.forEach((_, index) => {
     const dot = Dot(index);
-    dot.addEventListener("click", () => {});
+    dot.addEventListener("click", () => {
+      dotDisplay(images, dot.getAttribute("data-img"));
+    });
     dots.appendChild(dot);
   });
 
@@ -64,7 +66,7 @@ function generateImage(source, index) {
   return img;
 }
 
-function showImage(images, direction) {
+function showPrevOrNext(images, direction) {
   // Get the current picture
   const pictureDiv = document.getElementById("picture");
   const currentPicture = document.querySelector("#picture img");
@@ -79,4 +81,16 @@ function showImage(images, direction) {
     dots[currentIndex].classList.remove("fill");
     dots[nextIndex].classList.add("fill");
   }
+}
+
+function dotDisplay(images, indexToDisplay) {
+  const pictureDiv = document.getElementById("picture");
+  const currentPicture = document.querySelector("#picture img");
+  const currentIndex = Number(currentPicture.getAttribute("data-index"));
+  const dots = document.getElementsByClassName("dot");
+
+  const newPicture = generateImage(images[indexToDisplay], indexToDisplay);
+  pictureDiv.replaceChild(newPicture, currentPicture);
+  dots[currentIndex].classList.remove("fill");
+  dots[indexToDisplay].classList.add("fill");
 }
