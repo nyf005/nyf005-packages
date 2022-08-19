@@ -38,7 +38,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: "nyf utils",
-      filename: "index.html",
+      filename: "test.html",
       template: "src/template.html",
     }),
   ],
