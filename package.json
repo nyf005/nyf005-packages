@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/nyf005/nyf005-packages#readme",
   "devDependencies": {
-    "@babel/core": "^7.18.10",
+    "@babel/core": "^7.29.7",
     "@babel/preset-env": "^7.18.10",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
